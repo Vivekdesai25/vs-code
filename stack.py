@@ -1,6 +1,7 @@
 class MyStack:
-    def __init__(self):
+    def __init__(self,a):
         self.stack=[]
+        self.max=a
     def is_empty(self):
         return len(self.stack)==0
     def pop(self):
@@ -10,8 +11,12 @@ class MyStack:
         else:
             return print("stack  underflow")
     def push(self,item):
-        self.stack.append(item)
-        print(f"{item} inserted")
+        if len(self.stack)<self.max:
+            self.stack.append(item)
+            print(f"{item} inserted")
+        else:
+            print("ovwerflow")
+        
     def peek(self):
         if not self.is_empty():
             return print(f"last element {self.stack[-1]}")
@@ -23,18 +28,27 @@ class MyStack:
                 print(f"elements {i}")
         else:
             print("display empty stack message")
-s=MyStack()
-s.push(100)
-s.push(200)
-s.push(300)
-s.push(400)
-s.push(500)
-s.pop()
-s.pop()
-s.peek()
-s.display()
-s.pop()
-s.pop()
-s.pop()
-s.peek()
-s.display()
+def mun():
+    s=MyStack(2)
+    while True:
+        print("\n \n1.push \n2.pop \n3.peek \n4.display \n5.exit ")
+        #print("ener ur choice")
+        n=int(input("enter choice "))
+        if n ==1:
+            item=int(input("enter no to add "))
+            s.push(item)
+        elif n == 2:
+            s.pop()
+        elif n == 3:
+            s.peek()
+        elif n == 4:
+            s.display()
+        elif n == 5:
+            print("exiting...")
+            break
+        else:
+            print("invalid choice")
+mun()
+              
+
+
